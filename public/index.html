@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="/stylesheets/styles.css">
+  <script src="/javascripts/jquery.js"></script>
+  <script src="/javascripts/handlebars.js"></script>
+</head>
+<body>
+  <header>Contact Manager</header>
+  <main>
+    <div id="main-display">
+      <div id="menu-bar">
+        <div><button class="add-contact">Add Contact</button></div>
+        <div><input type="search" id="search-bar" placeholder="Search"></div>
+      </div>
+      <div id="contacts-display">
+      </div>
+    </div>
+    <br><br>
+    <footer>
+      <div id="author">By Josh Hinman 2022</div>
+      <div id="cover"></div>
+      <div class="center">
+        <div class="form-modal">
+          <h2>Contact Info</h2>
+          <form id="new-contact" data-id="">
+            <div>
+              <input type="text" name="full_name">
+              <label for="full_name">Name </label><br>
+            </div>
+            <div>
+              <input type="tel" name="phone_number" pattern="[0-9]{3}[\-]?[0-9]{3}[\-]?[0-9]{4}">
+              <label for="phone_number">Phone </label><br>
+            </div>
+            <div>
+              <input type="email" name="email">
+              <label for="email">Email </label><br>
+            </div>
+            <div id="tags">
+            </div>
+            <div>
+              <button id="cancel">Cancel</button>
+              <input type="submit" value="Submit">
+            </div>
+          </form>
+        </div>
+      </div>
+    </footer>
+    <script id="contact" type="text/x-handlebars">
+      <div id="{{_id}}" class="contact">
+        <h3>{{full_name}}</h3>
+        <h4>Phone Number:</h4>
+        <p>{{phone_number}}</p>
+        <h4>Email:</h4>
+        <p>{{email}}</p>
+        <h4>Tags:</h4>
+        {{#each tags}}
+          <a class="tag" href="#">#{{this}}</a>
+        {{/each}}<br>
+        <button>Edit</button>
+        <button>Delete</button>
+      </div>
+    </script>
+    <script id="tag" type="text/x-handlebars">
+      <div class="tag-input">
+        <label for="{{tag}}">{{tag}}<input type="checkbox" id="{{tag}}" name="{{tag}}"></label>
+      <div>
+    </script>
+    <script id="emptyContacts" type="text/x-handlebars" >
+      <h2 id="empty-contacts">No Contacts<h2>
+    </script>
+  </main>
+</body>
+<script type="module" src="/javascripts/app.js"></script>
+</html>
