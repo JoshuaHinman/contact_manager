@@ -2,12 +2,15 @@
   "name": "contact_manager_mongo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "devStart": "nodemon server.js"
   },
-  "author": "",
+  "author": "Josh Hinman",
   "license": "ISC",
+  "engines" : {
+    "node": "17.9.0"
+  },
   "dependencies": {
     "express": "^4.18.1",
     "mongoose": "^6.3.1"
