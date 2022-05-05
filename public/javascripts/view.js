@@ -115,7 +115,6 @@ class View {
     let contactData = this.getFormData();
     if (this.form.dataset.id) { // if editing a contact
       contactData['_id'] = this.form.dataset.id;
-      console.log(contactData)
       this.submitEdit(contactData);
     } else {                    //if new contact
       this.submitNew(contactData);
@@ -125,12 +124,12 @@ class View {
   }
 
   async submitEdit (contactData) {
-    contactData._id = this.form.dataset.id;
     await this.updateContact(contactData);
-    //let idx = this.getContactIndex(contactData.id);
     this.form.dataset.id = '';
-    //this.contactList[idx] = contactData;
-    this.refreshContactList();
+    let idx = this.getContactIndex(contactData._id);
+    contactData.tags = contactData.tags.split(',') || [];
+    this.contactList[idx] = contactData;
+    this.updateContactsDisplay();
   }
 
   submitNew(contactData) {
@@ -175,7 +174,8 @@ class View {
 
   getContactIndex(id) {
     let i = 0;
-    while (this.contactList[i]._id != id && i < this.contactList.length) { i++; }
+    while (i < this.contactList.length && this.contactList[i]._id != id) {
+      i++; }
     return i;
   }
 
