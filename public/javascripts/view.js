@@ -127,7 +127,8 @@ class View {
     await this.updateContact(contactData);
     this.form.dataset.id = '';
     let idx = this.getContactIndex(contactData._id);
-    contactData.tags = contactData.tags.split(',') || [];
+    contactData.tags = contactData.tags.split(',');
+    if (contactData.tags[0] == '') { contactData.tags = []; }
     this.contactList[idx] = contactData;
     this.updateContactsDisplay();
   }
@@ -187,7 +188,9 @@ class View {
     if (contact.tags) {
       contact.tags.forEach((tag) => {
         let checkBox = document.querySelector(`[name="${tag}"]`);
-        checkBox.setAttribute('checked', 'checked');
+        if (1) {
+          checkBox.setAttribute('checked', 'checked');
+        }
       });
     }
   }

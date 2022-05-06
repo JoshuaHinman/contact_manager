@@ -8,7 +8,12 @@ class Model {
     .then(response => response.json())
     .then(json => {
         this.contacts = json.map((contact) => {
-        if (contact.tags) { contact.tags = contact.tags.split(','); }
+        if (contact.tags) {
+          contact.tags = contact.tags.split(',');
+       } else {
+         contact.tags = [];
+       }
+        console.log(contact.tags)
         return contact;
       })
     })
