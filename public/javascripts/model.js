@@ -17,7 +17,8 @@ class Model {
         return contact;
       })
     })
-    .then(() => this.contacts);
+    .then(() => this.contacts)
+    .catch(err => console.error(err));
   }
 
   createContact(contact) {
@@ -26,21 +27,24 @@ class Model {
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify(contact)})
     .then(response => response.json())
-    .then(contact => contact);
+    .then(contact => contact)
+    .catch(err => console.error(err));
   }
 
   updateContact(contact) {
-    fetch(`/contacts/update/${contact._id}`, {
+    return fetch(`/contacts/update/${contact._id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify(contact)})
-    .then(response => console.log(response.status));
+    .then(response => console.log(response.status))
+    .catch(err => console.error(err));
   }
 
   deleteContact(id) {
-    fetch(`/contacts/${id}`, {
+    return fetch(`/contacts/${id}`, {
       method: 'DELETE'})
-    .then(response => console.log(response.status));
+    .then(response => console.log(response.status))
+    .catch(err => console.error(err));
   }
 }
 

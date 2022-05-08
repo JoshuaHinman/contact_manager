@@ -85,7 +85,7 @@ class View {
 
   async deleteClick(id) {
     if (confirm("Delete this contact?")) {
-     await  this.deleteContact(id);
+     const result = await this.deleteContact(id);
       this.refreshContactList();
     }
   }
@@ -133,8 +133,8 @@ class View {
     this.updateContactsDisplay();
   }
 
-  submitNew(contactData) {
-    this.createContact(contactData);
+  async submitNew(contactData) {
+    const result = await this.createContact(contactData);
     this.refreshContactList();
   }
 

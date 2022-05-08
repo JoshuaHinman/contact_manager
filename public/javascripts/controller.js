@@ -21,12 +21,12 @@ class Controller {
 		console.log(contact);
 	}
 
-	deleteContact = (id) => {
-		this.model.deleteContact(id);
+	deleteContact = async (id) => {
+		return await this.model.deleteContact(id);
 	}
 
-	updateContact = (contact) => {
-		this.model.updateContact(contact);
+	updateContact = async (contact) => {
+		await this.model.updateContact(contact);
 	}
 
 }
