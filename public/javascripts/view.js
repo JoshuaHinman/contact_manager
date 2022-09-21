@@ -6,7 +6,8 @@ class View {
 
     this.contactsDisplay = document.getElementById('contacts-display');
     this.form = document.querySelector('form');
-    this.modal = document.querySelector('.center');
+    this.modal = document.querySelector('.form-modal');
+    this.blur = document.querySelector('.blur');
     this.search = document.getElementById('search-bar');
 
     this.refreshContactList = null;
@@ -162,10 +163,12 @@ class View {
 
   showForm() {
     this.modal.classList.add('show');
+    this.blur.classList.add('show');
   }
 
   hideAndClearForm() {
     this.modal.classList.remove('show');
+    this.blur.classList.remove('show');
     this.form.reset();
      this.tags.forEach((tag) => {
       let checkBox = document.querySelector(`[name="${tag}"]`);
