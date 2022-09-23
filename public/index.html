@@ -12,11 +12,10 @@
 <body>
   <header>Contact Manager</header>
   <main>
-    
     <div id="main-display">
       <div id="menu-bar">
         <button class="add-contact">Add Contact</button>
-        <input type="search" id="search-bar" placeholder="Search">
+        <input type="search" id="search-bar" placeholder="Search by name or #tag">
       </div>
       <div id="contacts-display">
       </div>
@@ -46,9 +45,7 @@
       </div>
     </div>
     <br><br>
-    <footer>
-      <div id="author">By Josh Hinman 2022</div>
-    </footer>
+    <div id="author">By Josh Hinman 2022</div>
     <script id="contact" type="text/x-handlebars">
       <div id="{{_id}}" class="contact">
         <h3>{{full_name}}</h3>

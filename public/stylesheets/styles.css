@@ -15,10 +15,18 @@ footer
   background-color: white;
 }
 
+a, a:visited {
+  color: blue;
+}
+
 #author {
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  left: 0;
   background-color: lightblue;
-  height: 30px;
+  height: 2rem;
+  width: 100%;
+  text-align: center;
 }
 
 h2
@@ -31,6 +39,7 @@ h2
 body
 {
   font-size: 1rem;
+  background-image: url(../background.jpg);
 }
 
 #main-display
@@ -41,7 +50,6 @@ body
 
 #menu-bar
 {
-  background-color: LightBlue;
   box-sizing: border-box;
   display: flex;
   justify-content: space-around;
@@ -95,10 +103,11 @@ body
 .contact
 {
   display: inline-block;
-  margin: .5rem;
+  margin: .1rem;
   border: 2px solid lightblue;
   border-radius: .5rem;
   padding: .5rem;
+  background-color: white;
 }
 
 .contact h5, .contact p
@@ -164,6 +173,9 @@ form input[type="submit"], form button
 }
 
 @media only screen and (orientation: portrait) {
+  #main-display {
+    width: 100%;
+  }
   #menu-bar *
   {
     margin: .25rem auto;
