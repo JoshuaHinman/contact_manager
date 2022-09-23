@@ -100,10 +100,16 @@ body
   visibility: visible;
 }
 
+#contacts-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .contact
 {
   display: inline-block;
-  margin: .1rem;
+  margin: .2rem;
   border: 2px solid lightblue;
   border-radius: .5rem;
   padding: .5rem;
@@ -183,6 +189,10 @@ form input[type="submit"], form button
     height: 1.5rem;
     width: 35%;
   }
+  #contacts-display {
+    font-size: 1.25rem;
+    margin: .1rem;
+  }
   form
   {
     width: 75%;
@@ -192,6 +202,6 @@ form input[type="submit"], form button
   }
   form input[type="submit"], form button
   {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
 }
